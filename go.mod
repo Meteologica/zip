@@ -1,3 +1,3 @@
-module github.com/STARRY-S/zip
+module github.com/meteologica/zip
 
-go 1.21.3
+go 1.20
