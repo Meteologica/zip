@@ -7,7 +7,7 @@ Usage
 -----
 
 ```go
-import "github.com/STARRY-S/zip"
+import "github.com/meteologica/zip"
 ```
 
 ```go

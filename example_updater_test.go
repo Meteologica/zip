@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/STARRY-S/zip"
+	"github.com/meteologica/zip"
 )
 
 func handleErr(err error) {
