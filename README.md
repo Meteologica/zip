@@ -1,10 +1,8 @@
-Go zip library
-==============
+# Go zip library
 
-This project is based on the [archive/zip](https://github.com/golang/go/tree/master/src/archive/zip) Go standard library to add a `Updater` struct to allow appending new files to the existing zip archive without decompress the whole file.
+This project is based on the [archive/zip](https://github.com/golang/go/tree/master/src/archive/zip) Go standard library. It adds a new `Updater` struct that allows appending new files to the existing zip archive without having to decompress the whole file. If the file has the same name as one of the existing files, its data is overwritten.
 
-Usage
------
+## Usage
 
 ```go
 import "github.com/meteologica/zip"
@@ -33,8 +31,7 @@ handleErr(err)
 
 The completed example test code: [example_updater_test.go](./example_updater_test.go).
 
-License
--------
+## License
 
 [BSD 3-Clause](LICENSE)
 
