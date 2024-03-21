@@ -248,7 +248,7 @@ func (u *Updater) AppendHeaderAt(fh *FileHeader, offset int64) (io.Writer, error
 	// Offset should match existing header offsets or equal to directory offset.
 	var offsetExists bool
 
-	existingFileIndex := 0
+	existingFileIndex := -1
 	if offset < 0 {
 		// Append the file to the zip or replace the existing one
 		for i, h := range u.dir {
@@ -260,7 +260,7 @@ func (u *Updater) AppendHeaderAt(fh *FileHeader, offset int64) (io.Writer, error
 		}
 
 		// File does not exist inside the zip, so we append it
-		if existingFileIndex == 0 {
+		if existingFileIndex >= 0 {
 			offset = u.dirOffset
 		}
 	} else {
@@ -311,7 +311,7 @@ func (u *Updater) AppendHeaderAt(fh *FileHeader, offset int64) (io.Writer, error
 			}
 
 			// Rewind the ReadWriter offset to the one of the file to be deleted
-			_, err = u.rw.Seek(int64(u.dir[existingFileIndex].offset), io.SeekStart)
+			_, err = u.rw.Seek(int64(existingFileOffset), io.SeekStart)
 			if err != nil {
 				return nil, err
 			}
