@@ -5,6 +5,10 @@
 !NOTICE.txt
 tmp*
 
+# Test archive files
+/*.zip
+!testdata/*.zip
+
 # VSCode config
 /.vscode/
 
